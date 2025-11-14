@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
 async function run() {
     try {
 
-        await client.connect()
+        // await client.connect()
         const db = client.db('social_db')
         const socilaColl = db.collection('social_coll')
         const eventColl = db.collection('event_coll')
@@ -53,7 +53,7 @@ async function run() {
 
 
         app.get('/event', async (req, res) => {
-            const result = await eventColl.find().sort({time:-1}).toArray()
+            const result = await eventColl.find().sort({ time: -1 }).toArray()
             res.send(result)
         })
     }
